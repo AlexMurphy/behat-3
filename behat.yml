@@ -1,11 +1,33 @@
 default:
   suites:
-    my_suite:
-      contexts:
-        - FeatureContext
+    # my_suite:
+    #   contexts:
+    #     - FeatureContext
+    user_features:
+        contexts: [ AdminContext ]
+        filters:   
+          role: admin
+    admin_features:
+        contexts: [ UserContext ]
+        filters:   
+          role: user
   extensions:
     Behat\MinkExtension:
       base_url:  'http://dev-casetrackingsystem.homeoffice.gov.uk'
       sessions:
         default:
           goutte: ~
+
+phantomjs:
+  suites:
+    user_features:
+      contexts:
+        - UserContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://dev-casetrackingsystem.homeoffice.gov.uk'
+      goutte: ~
+      selenium2:
+        wd_host: "http://localhost:8643/wd/hub"
+        capabilities:
+          browser: googlechrome
