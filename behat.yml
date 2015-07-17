@@ -13,7 +13,7 @@ default:
           role: user
   extensions:
     Behat\MinkExtension:
-      base_url:  'http://dev-casetrackingsystem.homeoffice.gov.uk'
+      base_url:  ''
       sessions:
         default:
           goutte: ~
@@ -25,7 +25,7 @@ phantomjs:
         - UserContext
   extensions:
     Behat\MinkExtension:
-      base_url: 'http://dev-casetrackingsystem.homeoffice.gov.uk'
+      base_url: ''
       goutte: ~
       selenium2:
         wd_host: "http://localhost:8643/wd/hub"
